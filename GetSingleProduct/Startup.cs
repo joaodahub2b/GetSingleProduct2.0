@@ -32,6 +32,7 @@ namespace GetSingleProduct
             services.AddScoped<MercadoLivreService, MercadoLivreService>();
             services.AddScoped<BlingService, BlingService>();
             services.AddScoped<DafitiService, DafitiService>();
+            services.AddScoped<EmillenniumService, EmillenniumService>();
             services.AddScoped<ITenantSystemApiKeyRepository, TenantSystemApiKeyRepository>();
             services.AddDbContext<HubContext>();
             services.AddControllers();

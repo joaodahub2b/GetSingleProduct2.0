@@ -20,27 +20,27 @@ namespace GetSingleProduct.Services
         {
             this.repository = repository;
         }
-        internal void GetSingleProduct(int tenant, string sku)
+        internal string GetSingleProduct(int tenant, string sku)
         {
-            GetSession(tenant);/*
+            var session = GetSession(tenant);
             var client = new RestClient("https://maisdecasa.com.br/index.php/api/index/index/");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/xml");
             request.AddHeader("Cookie", "PHPSESSID=lvvvrf103ecmvsai3nsiep59p6; external_no_cache=1");
-            var body = @"<SOAP-ENV:Envelope xmlns:SOAP-ENV=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:SOAP-ENC=""http://schemas.xmlsoap.org/soap/encoding/"" xmlns:ns1=""urn:Magento"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" SOAP-ENV:encodingStyle=""http://schemas.xmlsoap.org/soap/encoding/"">" + "\n" +
-            @"   <SOAP-ENV:Body>" + "\n" +
-            @"      <ns1:call>" + "\n" +
-            @"         <sessionId xsi:type=""xsd:string"">0e1c45172e25531234fd71ac07ee7450</sessionId>" + "\n" +
-            @"         <resourcePath xsi:type=""xsd:string"">catalog_product.info</resourcePath>" + "\n" +
-            @"         <args xsi:type=""xsd:string"">ARMD253130</args>" + "\n" +
-            @"      </ns1:call>" + "\n" +
-            @"   </SOAP-ENV:Body>" + "\n" +
-            @"</SOAP-ENV:Envelope>";
+            var body = @"<SOAP-ENV:Envelope xmlns:SOAP-ENV=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:SOAP-ENC=""http://schemas.xmlsoap.org/soap/encoding/"" xmlns:ns1=""urn:Magento"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" SOAP-ENV:encodingStyle=""http://schemas.xmlsoap.org/soap/encoding/"">
+            <SOAP-ENV:Body>
+            <ns1:call>
+            <sessionId xsi:type=""xsd:string"">0e1c45172e25531234fd71ac07ee7450</sessionId>
+            <resourcePath xsi:type=""xsd:string"">catalog_product.info</resourcePath>
+            <args xsi:type=""xsd:string"">ARMD253130</args>
+            </ns1:call>
+            </SOAP-ENV:Body>
+            </SOAP-ENV:Envelope>";
             request.AddParameter("application/xml", body, ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             //return response;
-            Console.WriteLine(response.Content.ToString());*/
+            return response.Content.ToString();
         }
 
         private string GetSession(int idTenant)
@@ -48,7 +48,7 @@ namespace GetSingleProduct.Services
             var erpKey = repository.GetKey(idTenant, apiKeyMagento);
             var erpUser = repository.GetKey(idTenant, userMagento);
             var erpUrl = repository.GetKey(idTenant, urlMagento);
-            
+
             var client = new RestClient($"{erpUrl}");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
@@ -65,15 +65,10 @@ namespace GetSingleProduct.Services
             request.AddParameter("text/plain", body, ParameterType.RequestBody);
             var response = client.Execute(request);
 
-            
-
             XDocument xmlDocument = XDocument.Parse(response.Content);
             XmlSerializer serializer = new XmlSerializer(typeof(Envelope));
             var envelope = (Envelope)serializer.Deserialize(xmlDocument.CreateReader());
-            var result = envelope.Body.loginResponse.loginReturn;
-
-            Console.WriteLine(response.Content);
-            return null;
+            return envelope.Body.loginResponse.loginReturn;
         }
     }
 }

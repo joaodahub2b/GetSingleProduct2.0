@@ -17,17 +17,10 @@ namespace GetSingleProduct.Controllers
         }
 
         [HttpGet]
-        public void GetSingleProduct(int tenant, string sku)
+        public IActionResult GetSingleProduct(int tenant, string sku)
         {
-            magentoService.GetSingleProduct(tenant, sku);
-            //Tenant 4114 para os testes
+            var product = magentoService.GetSingleProduct(tenant, sku);
+            return Ok(product);
         }
-
-        //[HttpPost("{id}")]
-        //public void GetSession(int id, SessionMagentoDto sessionDto)
-        //{
-        //    magentoService.GetSession(sessionDto);
-
-        //}
     }
 }

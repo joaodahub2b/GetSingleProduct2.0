@@ -1,25 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Fonts\\GetSingleProduct\\GetSingleProduct\\GetSingleProduct.csproj": {}
+    "C:\\Fonts\\GetSingleProduct\\GetSingleProduct2.0\\GetSingleProduct\\GetSingleProduct.csproj": {}
   },
   "projects": {
-    "C:\\Fonts\\GetSingleProduct\\GetSingleProduct\\GetSingleProduct.csproj": {
+    "C:\\Fonts\\GetSingleProduct\\GetSingleProduct2.0\\GetSingleProduct\\GetSingleProduct.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct\\GetSingleProduct.csproj",
+        "projectUniqueName": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct2.0\\GetSingleProduct\\GetSingleProduct.csproj",
         "projectName": "GetSingleProduct",
-        "projectPath": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct\\GetSingleProduct.csproj",
-        "packagesPath": "C:\\Users\\João Marcos Carniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct\\obj\\",
+        "projectPath": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct2.0\\GetSingleProduct\\GetSingleProduct.csproj",
+        "packagesPath": "C:\\Users\\João Marcos\\.nuget\\packages\\",
+        "outputPath": "C:\\Fonts\\GetSingleProduct\\GetSingleProduct2.0\\GetSingleProduct\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\João Marcos Carniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\João Marcos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
